@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mongo:
+    image: 'mongo:3'
+    ports:
+      - 27017:27017
+  web:
+    build: .
+    command: python app.py
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    environment:
+      DEBUG: '1'
+      MONGODB_URL: 'mongodb://mongo:27017'
+    volumes:
+      - .:/usr/src/app

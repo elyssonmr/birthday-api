@@ -1,0 +1,5 @@
+[run]
+omit = 
+    birthday/config.py
+    birthday/application.py
+    tests/*
